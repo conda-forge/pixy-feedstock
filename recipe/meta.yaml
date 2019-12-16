@@ -1,5 +1,5 @@
 {% set name = "pixy" %}
-{% set version = "0.11" %}
+{% set version = "0.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/ksamuk/pixy/archive/{{ version }}.tar.gz
-  sha256: 24fa9f79fdf9c94cebc7092a1d74709108fc27156037a7766ba9465baeba5c49
+  sha256: c5be60e13ef10de4f6a1d2b6e981caba83a13e9fec32470db34c22770e9ed1eb
 
 build:
   number: 0
@@ -43,7 +43,7 @@ about:
     pixy is a command-line tool for painlessly and correctly estimating 
     average nucleotide diversity within (π) and between (dxy) populations from a VCF. 
     In particular, pixy facilitates the use of VCFs containing invariant (AKA monomorphic) 
-    sites, which are essential for the correct computation of π and dxy.
+    sites AND tracks missing data, which are both essential for the correct computation of π and dxy.
   dev_url: https://github.com/ksamuk/pixy
   doc_url: https://pixy.readthedocs.io/en/latest/
   doc_source_url: https://github.com/ksamuk/pixy/blob/master/README.md
