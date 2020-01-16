@@ -1,5 +1,5 @@
 {% set name = "pixy" %}
-{% set version = "0.12" %}
+{% set version = "0.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/ksamuk/pixy/archive/{{ version }}.tar.gz
-  sha256: c5be60e13ef10de4f6a1d2b6e981caba83a13e9fec32470db34c22770e9ed1eb
+  sha256: 3963127947cd94dcc524df843e846e8620217827d4025b033ae8127195a552b4
 
 build:
   number: 0
@@ -23,7 +23,6 @@ requirements:
     - pip
   run:
     - scikit-allel
-    - tqdm
     - pandas
     - numpy
     - zarr
