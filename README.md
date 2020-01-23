@@ -12,7 +12,7 @@ Summary: Unbiased estimation of nucleotide diversity within and between populati
 pixy is a command-line tool for painlessly and correctly estimating
 average nucleotide diversity within (π) and between (dxy) populations from a VCF.
 In particular, pixy facilitates the use of VCFs containing invariant (AKA monomorphic)
-sites, which are essential for the correct computation of π and dxy.
+sites AND tracks missing data, which are both essential for the correct computation of π and dxy.
 
 
 Current build status
@@ -47,6 +47,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_python3.8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8316&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pixy-feedstock?branchName=master&jobName=linux&configuration=linux_python3.8" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_python3.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8316&branchName=master">
@@ -58,6 +65,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8316&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pixy-feedstock?branchName=master&jobName=osx&configuration=osx_python3.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_python3.8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8316&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pixy-feedstock?branchName=master&jobName=osx&configuration=osx_python3.8" alt="variant">
                 </a>
               </td>
             </tr>
