@@ -27,7 +27,7 @@ requirements:
     - numpy
     - zarr
     - python
-    - tabix
+    - bioconda-tabix
 
 test:
   commands:
