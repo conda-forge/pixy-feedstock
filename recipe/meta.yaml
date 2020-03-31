@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/ksamuk/pixy/archive/{{ version }}.tar.gz
-  sha256: 6cb1fd86a8a9bc0e02f67c1b5bcaa17467d3c264f910f1abaeb5237c91eecece
+  sha256: 1b795cc2dbee66de7029e3ba951f7d659bd7825fcfc076c88658a0c17ca63c65
 
 build:
   number: 0
