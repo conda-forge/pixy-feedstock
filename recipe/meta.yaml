@@ -1,4 +1,5 @@
 {% set name = "pixy" %}
+
 {% set version = "0.95.01" %}
 
 package:
@@ -8,7 +9,7 @@ package:
 source:
   url: https://github.com/ksamuk/pixy/archive/{{ version }}.tar.gz
   sha256: 50abe4fedd68d814b4a011f140ace04ae0b64f9b62a5a3df5689a1dfa377d40d
-
+  
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
