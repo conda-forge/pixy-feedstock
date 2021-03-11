@@ -18,7 +18,10 @@ build:
     - pixy = pixy.__main__:main
 
 requirements:
+  build:
+    - python
   host:
+    - python
     - pip
     - setuptools
     - numpy
