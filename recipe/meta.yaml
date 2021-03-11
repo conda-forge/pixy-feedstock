@@ -18,6 +18,8 @@ build:
     - pixy = pixy.__main__:main
 
 requirements:
+  build:
+    - python =3.7
   host:
     - python =3.7
     - pip
