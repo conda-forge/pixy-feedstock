@@ -1,53 +1,58 @@
 {% set name = "pixy" %}
-
-{% set version = "0.95.01" %}
+{% set version = "1.0.0.beta1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
+  path: ../
   url: https://github.com/ksamuk/pixy/archive/{{ version }}.tar.gz
-  sha256: 50abe4fedd68d814b4a011f140ace04ae0b64f9b62a5a3df5689a1dfa377d40d
-  
+  sha256: 08718638a710aecc94fb97b99e287429d3d482f5aadc98439b4eb6fb0b926048
+
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [win or py<36]
+  number: 1
+  script: "{{ PYTHON }} -m pip install . -vv"
+  skip: True  # [win or py<37 or py>37]
   entry_points:
     - pixy = pixy.__main__:main
 
 requirements:
+  build:
+    - python {{ python }}
   host:
-    - python
-    - setuptools
+    - python {{ python }}
     - pip
+    - setuptools
+    - numpy
   run:
     - scikit-allel
     - pandas
     - numpy
-    - zarr
-    - python
-
+    - python {{ python }}
+    - multiprocess
+    - scipy
+    - numcodecs
+    
 test:
   commands:
-    - pixy --help
+    - pixy --version
 
 about:
   home: https://github.com/ksamuk/pixy
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
-  summary: Unbiased estimation of nucleotide diversity within and between populations
+  summary: 'Unbiased estimation of nucleotide diversity within and between populations'
   description: |
     pixy is a command-line tool for painlessly and correctly estimating 
     average nucleotide diversity within (π) and between (dxy) populations from a VCF. 
     In particular, pixy facilitates the use of VCFs containing invariant (AKA monomorphic) 
-    sites AND tracks missing data, which are both essential for the correct computation of π and dxy.
+    sites, which are essential for the correct computation of π and dxy.
   dev_url: https://github.com/ksamuk/pixy
   doc_url: https://pixy.readthedocs.io/en/latest/
   doc_source_url: https://github.com/ksamuk/pixy/blob/master/README.md
-
+  
 extra:
   recipe-maintainers:
     - ksamuk
