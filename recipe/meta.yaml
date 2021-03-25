@@ -1,5 +1,5 @@
 {% set name = "pixy" %}
-{% set version = "1.0.0.beta1" %}
+{% set version = "1.0.1.beta1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 source:
   path: ../
   url: https://github.com/ksamuk/pixy/archive/{{ version }}.tar.gz
-  sha256: 08718638a710aecc94fb97b99e287429d3d482f5aadc98439b4eb6fb0b926048
+  sha256: 64b29e51a0d23f0e0df9e09e5b90a4f900dffded4e3c19e37ec9b4ae95e2d17b
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
-  skip: True  # [win or py<36]
+  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [win or py<36]
   entry_points:
     - pixy = pixy.__main__:main
 
@@ -33,7 +33,7 @@ requirements:
     - multiprocess
     - scipy
     - numcodecs
-    
+
 test:
   commands:
     - pixy --version
@@ -43,7 +43,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
-  summary: 'Unbiased estimation of nucleotide diversity within and between populations'
+  summary: Unbiased estimation of nucleotide diversity within and between populations
   description: |
     pixy is a command-line tool for painlessly and correctly estimating 
     average nucleotide diversity within (π) and between (dxy) populations from a VCF. 
@@ -52,7 +52,7 @@ about:
   dev_url: https://github.com/ksamuk/pixy
   doc_url: https://pixy.readthedocs.io/en/latest/
   doc_source_url: https://github.com/ksamuk/pixy/blob/master/README.md
-  
+
 extra:
   recipe-maintainers:
     - ksamuk
