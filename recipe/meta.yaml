@@ -1,5 +1,5 @@
 {% set name = "pixy" %}
-{% set version = "1.1.2.beta1" %}
+{% set version = "1.2.0.beta1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   path: ../
   url: https://github.com/ksamuk/pixy/archive/{{ version }}.tar.gz
-  sha256: 4e6e724f2c6517b0e7993e5f8a71dc7891030170426b735e65efdec11fc59f87
+  sha256: b695c488eacc8d48c657eae76bf8691c236c4afd939bf5930237e3212dc9d0c5
 
 build:
   number: 0
