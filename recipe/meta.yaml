@@ -19,17 +19,17 @@ build:
 
 requirements:
   build:
-    - python
+    - python=3.8.17
   host:
-    - python
+    - python=3.8.17
     - pip
     - setuptools
-    - numpy
+    - numpy=1.21
   run:
     - scikit-allel
     - pandas
-    - numpy
-    - python
+    - numpy=1.21
+    - python=3.8.17
     - multiprocess
     - scipy
     - numcodecs
