@@ -19,17 +19,21 @@ build:
 
 requirements:
   build:
-    - python
+    # Support for osx_arm64 as per
+    # https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/#how-to-add-a-osx-arm64-build-to-a-feedstock
+    - python =3.8.17                         # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy =1.21                            # [build_platform != target_platform]
   host:
-    - python
+    - python =3.8.17
     - pip
     - setuptools
-    - numpy
+    - numpy =1.21
   run:
     - scikit-allel
     - pandas
-    - numpy
-    - python
+    - numpy =1.21
+    - python =3.8.17
     - multiprocess
     - scipy
     - numcodecs
