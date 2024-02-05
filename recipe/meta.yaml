@@ -19,7 +19,13 @@ build:
 
 requirements:
   build:
-    - python =3.8.17
+    # Support for osx_arm64 as per
+    # https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/#how-to-add-a-osx-arm64-build-to-a-feedstock
+    - python =3.8.17                         # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
+    - pybind11                               # [build_platform != target_platform]
   host:
     - python =3.8.17
     - pip
