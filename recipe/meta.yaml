@@ -6,14 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  path: ../
   url: https://github.com/ksamuk/pixy/archive/{{ version }}.tar.gz
   sha256: da767309a2fb4f0e4479b0ca0088f95ee81cb3e1d0aa43764ac925d4e2fbee1d
 
 build:
   number: 1
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [py<36 or py>38]
   skip: true  # [win]
   entry_points:
     - pixy = pixy.__main__:main
@@ -22,19 +20,19 @@ requirements:
   build:
     # Support for osx_arm64 as per
     # https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/#how-to-add-a-osx-arm64-build-to-a-feedstock
-    - python =3.8.17                         # [build_platform != target_platform]
+    - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - numpy =1.21                            # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
   host:
-    - python =3.8.17
+    - python
     - pip
     - setuptools
-    - numpy =1.21
+    - numpy
   run:
     - scikit-allel
     - pandas
-    - numpy =1.21
-    - python =3.8.17
+    - numpy
+    - python
     - multiprocess
     - scipy
     - numcodecs
