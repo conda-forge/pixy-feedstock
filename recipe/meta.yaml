@@ -11,8 +11,10 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [win]
+  skip: true  # [py<38]
+  skip: true  # [py>311]
   entry_points:
     - pixy = pixy.__main__:main
 
@@ -20,22 +22,22 @@ requirements:
   build:
     # Support for osx_arm64 as per
     # https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/#how-to-add-a-osx-arm64-build-to-a-feedstock
-    - python >=3.8,<3.12                                 # [build_platform != target_platform]
+    - python                                 # [build_platform != target_platform]
+    - poetry                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
-    - poetry                                 # [build_platform != target_platform]
   host:
-    - python >=3.8,<3.12
+    - python
     - poetry 
     - pip
     - setuptools
     - numpy
   run:
-    - python >=3.8,<3.12
+    - python
+    - poetry 
     - scikit-allel
     - pandas
     - numpy
-    - poetry 
     - multiprocess
     - scipy
     - numcodecs
