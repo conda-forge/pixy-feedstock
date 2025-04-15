@@ -13,7 +13,7 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [win]
-  skip: true  # [py<38]
+  skip: true  # [py<37]
   skip: true  # [py>311]
   entry_points:
     - pixy = pixy.__main__:main
