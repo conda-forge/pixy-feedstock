@@ -1,5 +1,5 @@
 {% set name = "pixy" %}
-{% set version = "2.0.0.beta16" %}
+{% set version = "2.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/ksamuk/pixy/archive/{{ version }}.tar.gz
-  sha256: b64f7450ce09c0b08031ead53cfb4f774cd4eac22b28c1b541240558bdc8e4a5
+  sha256: 5d50be7c8b6c52c59c572ee854da03253b5be7d6d1ddce38dab510e3a79ababc
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
-  skip: true  # [win or py<310 or py>311]
+  skip: true  # [win or py<310 or py>314]
   entry_points:
     - pixy = pixy.__main__:main
 
@@ -26,19 +26,16 @@ requirements:
     - numpy                                 # [build_platform != target_platform]
   host:
     - python
-    - poetry 
+    - poetry
     - pip
     - setuptools
     - numpy
   run:
     - python
-    - poetry 
-    - scikit-allel
-    - pandas
-    - numpy >=1,<2
-    - multiprocess
-    - scipy
-    - numcodecs
+    - scikit-allel >=1.3.13
+    - numpy >=1.24,<3
+    - numcodecs >=0.13
+    - typing-extensions
 
 test:
   commands:
