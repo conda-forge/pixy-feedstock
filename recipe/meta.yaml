@@ -10,7 +10,7 @@ source:
   sha256: de8520fe23d8a84a3fe9f7e85c6937a89f32ea7be23cc466fca9be5bac4a8247
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [win or py<310 or py>314]
   entry_points:
@@ -36,6 +36,7 @@ requirements:
     - numpy >=1.24,<3
     - numcodecs >=0.13
     - typing-extensions
+    - htslib
 
 test:
   commands:
