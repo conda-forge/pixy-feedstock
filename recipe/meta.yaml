@@ -1,5 +1,5 @@
 {% set name = "pixy" %}
-{% set version = "2.2.3" %}
+{% set version = "2.2.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/ksamuk/pixy/archive/{{ version }}.tar.gz
-  sha256: de8520fe23d8a84a3fe9f7e85c6937a89f32ea7be23cc466fca9be5bac4a8247
+  sha256: 471bd3aeaf32491f914e8aa19962b1ebee4fda31b3767833841114d11aec2f49
 
 build:
   number: 0
@@ -36,6 +36,10 @@ requirements:
     - numpy >=1.24,<3
     - numcodecs >=0.13
     - typing-extensions
+    # scikit-allel's conda package depends on dask with no lower bound, and `import allel`
+    # loads its dask integration whenever dask is present. dask < 2024.5.1 imports
+    # `numpy.compat`, removed in numpy 2, which breaks `import allel` (ksamuk/pixy#225).
+    - dask-core >=2024.5.1
 
 test:
   commands:
